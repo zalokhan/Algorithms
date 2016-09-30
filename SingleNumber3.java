@@ -16,28 +16,29 @@ import java.util.*;
 
 class SingleNumber3 {
 
-	public static int[] singleNumber(int[] nums) {
-    	
-    	int xor = 0;
-    	for (int num : nums) {
-    		xor ^= num;
-    	}
-    	xor = ((xor & (xor-1)) ^ xor);
-    	int a=0, b=0;
-    	for (int num : nums) {
-    		if ((num & xor) == 0) {
-    			a ^= num;
-    		}
-    		else {
-    			b ^= num;
-    		}
-    	}
-		return new int[] {a,b};
+    public static int[] singleNumber(int[] nums) {
+
+        int xor = 0;
+        for (int num : nums) {
+            xor ^= num;
+        }
+        xor = ((xor & (xor - 1)) ^ xor);
+        int a = 0, b = 0;
+        for (int num : nums) {
+            if ((num & xor) == 0) {
+                a ^= num;
+            } else {
+                b ^= num;
+            }
+        }
+        return new int[]{a, b};
     }
 
     public static void main(String[] args) {
-		
-		int[] result = singleNumber(new int[] {1, 2, 3, 4, 5, 6, 7, 5, 4, 3, 2, 1});
-		for (int num: result) {System.out.println(num);}
+
+        int[] result = singleNumber(new int[]{1, 2, 3, 4, 5, 6, 7, 5, 4, 3, 2, 1});
+        for (int num : result) {
+            System.out.println(num);
+        }
     }
 }

@@ -17,46 +17,43 @@ Subscribe to see which companies asked this question
 import java.util.*;
 
 class TwoSum {
-	
-	public static int[] twoSum(int[] nums, int target) {
+
+    public static int[] twoSum(int[] nums, int target) {
         int[] temp = nums.clone();
         Arrays.sort(nums);
         int start = 0;
-        int end = nums.length-1;
+        int end = nums.length - 1;
         int sum = 0;
-        int [] result = new int[2];
+        int[] result = new int[2];
         while (start != end) {
-        	sum = nums[start] + nums[end];
-        	if(sum == target){
+            sum = nums[start] + nums[end];
+            if (sum == target) {
                 int count = 0;
-                for (int i=0; i<nums.length; i++){
-                    if(temp[i] == nums[start]){
+                for (int i = 0; i < nums.length; i++) {
+                    if (temp[i] == nums[start]) {
                         result[count] = i;
-                        count ++;
-                    }
-                    else if (temp[i] == nums[end]){
+                        count++;
+                    } else if (temp[i] == nums[end]) {
                         result[count] = i;
-                        count ++;
+                        count++;
                     }
-                    if(count == 2){
+                    if (count == 2) {
                         return result;
                     }
                 }
-        		return result;
-        	}
-        	else if (sum > target){
-        		end--;
-        	}
-        	else if (sum < target) {
-        		start++;
-        	}
+                return result;
+            } else if (sum > target) {
+                end--;
+            } else if (sum < target) {
+                start++;
+            }
         }
         return null;
     }
 
     public static void main(String[] args) {
-    	int[] params = {15, 7, 11, 2};
-    	int[] result = twoSum(params, 9);
-    	System.out.println(result[0] +" "+ result[1]);
+        int[] params = {15, 7, 11, 2};
+        int[] result = twoSum(params, 9);
+        System.out.println(result[0] + " " + result[1]);
     }
 }
